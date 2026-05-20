@@ -64,4 +64,14 @@ function scrollToSection() {
     });
 }
 
-setLanguage("en");
+document.addEventListener("DOMContentLoaded", () => {
+    const languageSelect = document.getElementById("language-select");
+    if (languageSelect) {
+        languageSelect.addEventListener("change", (event) => {
+            setLanguage(event.target.value);
+        });
+        setLanguage(languageSelect.value || "en");
+    } else {
+        setLanguage("en");
+    }
+});
